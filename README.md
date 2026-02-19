@@ -8,6 +8,21 @@ A SwiftUI + SwiftData iOS App to reduce decision fatigue by providing stable dai
 2.  **Add Files**: Ensure all files in `Data`, `Domain`, and `UI` are added to the target.
 3.  **Build & Run**: Select an iOS Simulator (iPhone 15/16) and press Cmd+R.
 
+## No-Mac Workflow (CI/CD)
+
+This project is configured for development on non-macOS environments using **XcodeGen** and **GitHub Actions**.
+
+### CI Pipeline
+- **Generation**: The Xcode project (`.xcodeproj`) is not committed. It is generated on the fly by CI using `project.yml`.
+- **Trigger**: Pushing to `main` or opening a Pull Request automatically triggers the build.
+- **Results**: Check the **Actions** tab in GitHub. If tests fail, download the `TestResults` artifact to inspect failures.
+
+### Local Testing (Windows)
+To run the pure logic tests on Windows (requires Swift Toolchain):
+1.  Navigate to the package directory: `cd Packages/DecisionPicker`
+2.  Run tests: `swift test`
+This validates the core decision algorithm without needing an iOS Simulator.
+
 ## Architecture
 
 -   **Data**: `Models.swift` containing `Category`, `OptionItem`, `PickHistory`, `Settings`. `DataController.swift` handles seeding.
