@@ -1,5 +1,5 @@
 import XCTest
-@testable import DecisiveApp
+@testable import DecisionPicker
 
 final class DecisionPickerTests: XCTestCase {
     

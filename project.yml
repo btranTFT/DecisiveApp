@@ -6,6 +6,10 @@ options:
   xcodeVersion: 15.0 # Use Xcode 15+ for iOS 17
   groupSortPosition: top
 
+packages:
+  DecisionPicker:
+    path: Packages/DecisionPicker
+
 targets:
   DecisiveApp:
     type: application
@@ -16,6 +20,8 @@ targets:
       - path: Domain
       - path: UI
       - path: Resources
+    dependencies:
+      - package: DecisionPicker
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.btran.DecisiveApp
