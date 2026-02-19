@@ -14,8 +14,6 @@ struct DecisionFatigueKillerApp: App {
 
         do {
             let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
-            // Seed data
-            DataController.seedCategories(modelContext: container.mainContext)
             return container
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
@@ -26,6 +24,10 @@ struct DecisionFatigueKillerApp: App {
         WindowGroup {
             ContentView()
                 .preferredColorScheme(.dark)
+                .onAppear {
+                    // Seed data safely on Main Actor
+                    DataController.seedCategories(modelContext: sharedModelContainer.mainContext)
+                }
         }
         .modelContainer(sharedModelContainer)
     }

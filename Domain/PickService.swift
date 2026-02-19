@@ -64,6 +64,10 @@ final class PickService {
             return nil
         } ?? []
         
+        // Initialize Rules & Seed
+        let rules = PickerRules(noRepeatDays: category.settings?.noRepeatDays ?? 3)
+        let seed = Int.random(in: 0...Int.max)
+        
         // RE-CREATE input with correct mapping
         let smartInput = PickerInput(
             options: logicOptions,

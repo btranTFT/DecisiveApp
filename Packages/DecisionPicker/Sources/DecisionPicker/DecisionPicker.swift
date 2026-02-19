@@ -6,6 +6,14 @@ public struct PickerInput {
     public let rules: PickerRules
     public let dateOnly: Date // Represents 'today'
     public let seed: Int // For deterministic randomness
+    
+    public init(options: [PickerOption], history: [PickerHistoryItem], rules: PickerRules, dateOnly: Date, seed: Int) {
+        self.options = options
+        self.history = history
+        self.rules = rules
+        self.dateOnly = dateOnly
+        self.seed = seed
+    }
 }
 
 public struct PickerOption: Identifiable {
