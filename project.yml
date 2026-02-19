@@ -1,0 +1,43 @@
+name: DecisiveApp
+options:
+  bundleIdPrefix: com.btran
+  deploymentTarget:
+    iOS: 17.0
+  xcodeVersion: 15.0 # Use Xcode 15+ for iOS 17
+  groupSortPosition: top
+
+targets:
+  DecisiveApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: DecisionFatigueKillerApp.swift
+      - path: Data
+      - path: Domain
+      - path: UI
+      - path: Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.btran.DecisiveApp
+        INFOPLIST_KEY_CFBundleDisplayName: "DecisionFatigueKiller"
+        INFOPLIST_KEY_UILaunchScreen_Generation: true # Auto-generate Launch Screen
+        Marketing_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 1
+        DEVELOPMENT_TEAM: "" # Leave empty for CI/Personal Team usage
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_PREVIEWS: YES
+        SWIFT_VERSION: 5.0
+
+  DecisiveAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests
+    dependencies:
+      - target: DecisiveApp
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.btran.DecisiveAppTests
+        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/DecisiveApp.app/DecisiveApp"
+        BUNDLE_LOADER: "$(TEST_HOST)"
+        CODE_SIGN_STYLE: Automatic
