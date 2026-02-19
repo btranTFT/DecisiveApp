@@ -2,6 +2,7 @@ import XCTest
 import SwiftData
 @testable import DecisiveApp
 
+@MainActor
 final class ModelTests: XCTestCase {
     var modelContext: ModelContext!
     var container: ModelContainer!
@@ -29,7 +30,7 @@ final class ModelTests: XCTestCase {
         modelContext.insert(category)
         
         // Fetch to verify
-        let descriptor = FetchDescriptor<Category>(predicate: #Predicate { $0.name == "Test Category" })
+        let descriptor = FetchDescriptor<DecisiveApp.Category>(predicate: #Predicate { $0.name == "Test Category" })
         let savedCategory = try modelContext.fetch(descriptor).first
         
         XCTAssertNotNil(savedCategory)
