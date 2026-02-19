@@ -27,7 +27,7 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.btran.DecisiveApp
         INFOPLIST_KEY_CFBundleDisplayName: "DecisionFatigueKiller"
         INFOPLIST_KEY_UILaunchScreen_Generation: true # Auto-generate Launch Screen
-        Marketing_VERSION: 1.0.0
+        MARKETING_VERSION: 1.0.0
         CURRENT_PROJECT_VERSION: 1
         DEVELOPMENT_TEAM: "" # Leave empty for CI/Personal Team usage
         CODE_SIGN_STYLE: Automatic
